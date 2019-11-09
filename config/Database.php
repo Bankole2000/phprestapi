@@ -4,7 +4,7 @@
     private $host = 'localhost';
     private $db_name = 'phprest';
     private $username = 'Bankole';
-    private $password = 'Bankole1.';
+    private $password = ''; // db password goes here
     private $conn;
 
     // 🔀 DB Connect function 
