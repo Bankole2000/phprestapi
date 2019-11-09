@@ -44,9 +44,9 @@ I'll gist about this later... but it's coming alright...
 
 ## Features in Development
 More areas to explore in this regard are
-* User Authentication
-* Protected Routes
-* Handling Multiform data
+* 🙎 User Authentication
+* 🔏Protected Routes
+* 📃Handling Multiform data
 
 ## Contribution
 
