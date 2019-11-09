@@ -1,0 +1,76 @@
+  PROJECT: Building a REST API with PHP and MYSQL
+DESCRIPTION: 
+A REST API for Blog Posts.
+FEATURES: API handles all requests to 
+▶️ Get All Posts
+▶️ Get single Post by ID
+▶️ Edit/Update single Post by ID
+▶️ Delete Single Post by ID
+
+TASK: 1. 
+🏗 Create the database structure in PhpMyAdmin
+⭐️Each Resource should have its own integral table for 
+its data/properties, and foreign keys for joins with other
+resources/tables. 
+
+TASK: 2.
+🚧 Create config folder 
+In that folder make a Database.php Class file
+with connection params and public function connect()
+
+TASK: 3. 
+📓 Create a Models folder 
+This will contain the basic resources as Classes.
+1️⃣ Post.php class for Blog Posts and the 
+2️⃣ Category.php class for Categories 
+⭐️ Each Model/table/Resource should have it's own Class! 
+as well as prepared statements for handling queries
+Each class will contain a private $table property for the resource 
+and a $conn variable for connecting to the database, as well as 
+public properties matching those to be used in the database. 
+
+TASK: 4. 
+💻 Create Post Model Connection Methods (functions)
+The Post class will have a __construct method that takes in the $db
+parameter and makes a database connection.
+This also goes for any other resource class. 
+This will also hold the public functions, 
+➡️ read(), to get all Posts
+➡️ read_single(), to get single post by ID
+➡️ create(), to create a single post 
+➡️ delete(), to delete a single post
+⭐️ If this were another resource the same functions would apply
+Each of the public functions will contain 
+1️⃣ the SQL Query, 2️⃣ Prepared statement, 3️⃣ statement Execution, and 
+4️⃣ Return any data or variables if necessary.
+⚠️ Each function must correspond to a SINGLE Endpoint.
+
+
+TASK: 5.
+🎁 Create API folder
+This folder will hold the subfolders and files that act as the
+endpoints for handling client requests.
+⭐️Each Resource MUST have it's own folder in the API i.e.
+💡 /api/{resource}/{action}?{queryStrings if required}
+So for example, for the Posts resource we would have 
+➡️ /api/post/create.php
+➡️ /api/post/read.php
+➡️ /api/post/read_single.php?id={id}
+➡️ /api/post/update.php
+➡️ /api/post/delete.php?id={id}
+⚠️ Note! Provide all requirements necessary for request to be processed
+i.e. headers, body content etc.
+
+TASK: 6. 
+✅ Create End Points
+⚠️ Each endpoint MUST include the headers, content type and Access Control
+CORS stuff etc. 
+⚠️ Each endpoint MUST also include the Database and Resource Class files
+Instantiate the Database and Connect, then instantiate the Resource Class.
+⛑ The End point will then assign it's data to the properties of the 
+Resource Class instantiated, then Call the method in that class to perform 
+the requested action (i.e. read, read_single, create, or delete methods).
+Then return whatever needs to be returned (either echo or print_r in json_encoded form).
+⚠️ Each Endpoint MUST correspond to a Single function in the resource Class.
+
+
