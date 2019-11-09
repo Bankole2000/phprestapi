@@ -1,0 +1,258 @@
+openapi: 3.0.0
+info:
+  title: Php rest api
+  version: '1.0'
+  contact:
+    name: Bankole
+    url: 'https://bankole2000.github.io/portfolio/contact.html'
+    email: techybanky@gmail.com
+  license:
+    name: MIT
+  description: ⭐ Basic REST API built with PHP and MySQL
+servers:
+  - url: 'http://localhost/projects/phprestapi/api'
+    description: php rest api
+paths:
+  /post/read.php:
+    get:
+      summary: Get Posts
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Get all Blog Posts
+  /post/read_single.php:
+    get:
+      summary: 'Get Post By :id'
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Get single Post by Id in URL query string
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+  /post/create.php:
+    post:
+      summary: Create Post
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Create Blog Post
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                author:
+                  type: string
+                category_id:
+                  type: string
+            examples:
+              create-post example:
+                value:
+                  title: Some Cool Title
+                  body: This is the body of the Blog post... Nothing too special yeah
+                  author: Bankole Esan
+                  category_id: '1'
+        description: |-
+          Request requires
+          `title, body, author, category_id`
+  /post/update.php:
+    put:
+      summary: 'Update Post by :id'
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Edit Post by id
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                body:
+                  type: string
+                author:
+                  type: string
+                category_id:
+                  type: string
+                id:
+                  type: string
+              required:
+                - title
+                - body
+                - author
+                - category_id
+            examples:
+              post-update:
+                value:
+                  title: A Totally New Cool Title
+                  body: 'Yo Yo Yo! Changed the body of the Blog post... Nothing too special yeah'
+                  author: Bankole Alex-Esan
+                  category_id: '1'
+                  id: '7'
+        description: 'Update Post by :id'
+  /post/delete.php:
+    delete:
+      summary: 'Delete Post by :id'
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: 'Delete post by :id string in Request Body'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+            examples:
+              delete-post:
+                value:
+                  id: '1'
+        description: 'Request requires `"id":"number"` in body'
+  /category/update.php:
+    put:
+      summary: 'Update Category by :id'
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Edit Category by id
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                name:
+                  type: string
+            examples:
+              category-update:
+                value:
+                  name: "Let's Rename this New Category We Created"
+                  id: '6'
+        description: 'Request requires `name, id` in request body'
+  /category/create.php:
+    post:
+      summary: Create Category
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Create Blog Category
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+            examples:
+              create-post example:
+                value:
+                  name: New Category Name
+        description: |-
+          Request requires
+          `name`
+  /category/read_single.php:
+    get:
+      summary: 'Get Category By :id'
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Get single Category by Id in URL query string
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: id
+          required: true
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
+        description: 'Request requires `"id":"number"` in the body'
+  /category/read.php:
+    get:
+      summary: Get Posts
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: Get all Categories
+  /category/delete.php:
+    delete:
+      summary: 'Delete Post by :id'
+      tags: []
+      responses:
+        '200':
+          description: OK
+      description: 'Delete post by :id string in Request Body'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+            examples:
+              delete-category:
+                value:
+                  id: '1'
+        description: 'Request requires `"id":"number"` in body'
+      parameters:
+        - schema:
+            type: string
+          in: header
+          name: Content-Type
+          required: true
+  
+components:
+  schemas: {}
