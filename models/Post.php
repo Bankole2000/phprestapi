@@ -35,7 +35,7 @@
       LEFT JOIN
         categories as c ON p.category_id = c.id
       ORDER BY
-        p.created_at DESC
+        p.id DESC
       ';
 
       // Prepared statement 

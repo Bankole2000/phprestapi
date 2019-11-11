@@ -2,8 +2,8 @@
   class Database {
     // 📄 Database Params
     private $host = 'localhost';
-    private $db_name = 'phprest';
-    private $username = 'Bankole';
+    private $db_name = 'phprest'; // db name goes here
+    private $username = 'Bankole'; // db Username goes here
     private $password = '';// db password goes here
     private $conn;
 
