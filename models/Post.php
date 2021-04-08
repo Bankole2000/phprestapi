@@ -19,6 +19,26 @@
       $this->conn = $db;
     }
 
+    // Create table
+    public function createTable(){
+      $createTableQuery = '
+      CREATE TABLE IF NOT EXISTS `'. $this->table .'` (
+        id INT AUTO_INCREMENT,
+        category_id INT,
+        category_name VARCHAR(255) NOT NULL,
+        title VARCHAR(255) NOT NULL,
+        body VARCHAR(255) NOT NULL,
+        author VARCHAR(255) NOT NULL,
+        created_at DATE, 
+        PRIMARY KEY (id)
+      )  ENGINE=INNODB;
+      ';
+
+      $createTableStmt = $this->conn->prepare($createTableQuery);
+
+      $createTableStmt->execute();
+    }
+
     // Get Posts
     public function read() {
       // Create query

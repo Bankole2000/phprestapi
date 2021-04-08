@@ -50,8 +50,9 @@
   <script>
     // SECTION: Get Categories for Select Input
     let selectCategories = document.querySelector('#selectCategories')
+    const baseUrl = 'http://localhost/projects/vanilla/php/phprestapi'
     const fetchCategories = () => {
-      fetch("http://localhost/projects/phprestapi/api/category/read.php")
+      fetch(`${baseUrl}/api/category/read.php`)
       .then(res => res.json())
       .then((data) => {
         data.data.forEach((category) => {
@@ -71,7 +72,7 @@
       let body = document.querySelector('#body').value;
       let author = document.querySelector('#author').value;
       let category_id = document.querySelector('#selectCategories').value;
-      fetch('http://localhost/projects/phprestapi/api/post/create.php',{
+      fetch(`${baseUrl}/api/post/create.php`,{
       method: 'POST', 
       headers: {
         // 'Accept': 'application/json, text/plain, */*',
@@ -119,7 +120,7 @@
 
    // SECTION: Get Posts on "Get Posts" button click Event
     const getPosts = () => {
-      fetch('http://localhost/projects/phprestapi/api/post/read.php')
+      fetch(`${baseUrl}/api/post/read.php`)
       .then(res => res.json())
       .then((data) => {
         console.log({data});
@@ -152,7 +153,7 @@
     // SECTION: Delete Post on "Delete Post" button click event
     const deletePost = (id) => {
       console.log(id);
-      fetch('http://localhost/projects/phprestapi/api/post/delete.php',{
+      fetch(`${baseUrl}/api/post/delete.php`,{
       method: 'DELETE', 
       headers: {
         'Accept': 'application/json, text/plain, */*',
@@ -179,7 +180,7 @@
 
     // SECTION: Get Categories on "Get Categories" button click event
     const getCategories = () => {
-      fetch('http://localhost/projects/phprestapi/api/category/read.php')
+      fetch(`${baseUrl}/api/category/read.php`)
       .then(res => res.json())
       .then((data) => {
         console.log({data});

@@ -3,8 +3,8 @@
     // 📄 Database Params
     private $host = 'localhost';
     private $db_name = 'phprest'; // db name goes here
-    private $username = 'Bankole'; // db Username goes here
-    private $password = '';// db password goes here
+    private $username = 'symfony'; // db Username goes here
+    private $password = 'symfony';// db password goes here
     private $conn;
 
     // 🔀 DB Connect function 

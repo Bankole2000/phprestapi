@@ -16,6 +16,20 @@
 
     // Get Categories
     public function read() {
+
+      $createTableQuery = '
+      CREATE TABLE IF NOT EXISTS `'. $this->table .'` (
+        id INT AUTO_INCREMENT,
+        name VARCHAR(255) NOT NULL,
+        created_at DATE,  
+        PRIMARY KEY (id)
+      )  ENGINE=INNODB;
+      ';
+
+      $createTableStmt = $this->conn->prepare($createTableQuery);
+
+      $createTableStmt->execute();
+
       // Create query
       $query = '
       SELECT 
@@ -39,6 +53,8 @@
 
     // Get Single Category
     public function read_single() {
+
+
       // Create query
       $query = '
       SELECT
@@ -71,6 +87,8 @@
 
     // Create new Category
     public function create() {
+      
+
       // create query
       $query = '
       INSERT INTO 

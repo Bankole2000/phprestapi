@@ -15,6 +15,7 @@
 
   // Instantiate blog post object
   $post = new Post($db);
+  $post->createTable();
 
   // Get raw posted data
   $data = json_decode(file_get_contents("php://input"));
